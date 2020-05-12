@@ -1,0 +1,6 @@
+#custom aliases
+
+alias ls="lsd"
+alias top="bashtop"
+alias burp="java -Xbootclasspath/p:/home/asier/burpsuite/burploader.jar -jar /home/asier/burpsuite/burpsuite_pro_v2.0.11beta.jar"
+

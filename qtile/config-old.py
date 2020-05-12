@@ -29,7 +29,7 @@ import os
 import re
 import socket
 import subprocess
-from libqtile.config import Drag, Key, Screen, Group, Drag, Click, Rule, Match
+from libqtile.config import Drag, Key, Screen, Group, Drag, Click, Rule
 from libqtile.command import lazy
 from libqtile import layout, bar, widget, hook
 from libqtile.widget import Spacer
@@ -62,37 +62,36 @@ keys = [
 
 # SUPER + FUNCTION KEYS
 
-   #Key([mod], "e", lazy.spawn('atom')),
-   #Key([mod], "c", lazy.spawn('conky-toggle')),
-   Key([mod], "f", lazy.spawn('thunar')), #FILE MANAGER
-   #Key([mod], "m", lazy.spawn('pragha')),
-   #Key([mod], "q", lazy.window.kill()),
-   Key([mod], "r", lazy.spawn('rofi-theme-selector')), #SELCTOR DE TEMA DE MENU
-   #Key([mod], "t", lazy.spawn('urxvt')),
-   #Key([mod], "v", lazy.spawn('pavucontrol')),
-   #Key([mod], "w", lazy.spawn('vivaldi-stable')),
-   Key([mod], "x", lazy.spawn('arcolinux-logout')),
-   Key([mod], "b", lazy.spawn('firefox')),
-   #Key([mod], "Escape", lazy.spawn('xkill')),
-   Key([mod], "Return", lazy.spawn('termite')),
-   #Key([mod], "KP_Enter", lazy.spawn('termite')),
-   #Key([mod], "F1", lazy.spawn('vivaldi-stable')),
-   #Key([mod], "F2", lazy.spawn('atom')),
-   #Key([mod], "F3", lazy.spawn('inkscape')),
-   #Key([mod], "F4", lazy.spawn('gimp')),
-   #Key([mod], "F5", lazy.spawn('meld')),
-   #Key([mod], "F6", lazy.spawn('vlc --video-on-top')),
-   #Key([mod], "F7", lazy.spawn('virtualbox')),
-   #Key([mod], "F8", lazy.spawn('thunar')),
-   #Key([mod], "F9", lazy.spawn('evolution')),
-   #Key([mod], "F10", lazy.spawn("spotify")),
-   #Key([mod], "F11", lazy.spawn('rofi -show run -fullscreen')),
-    Key([mod], "m", lazy.spawn('rofi -show run')), #MENU
+    Key([mod], "e", lazy.spawn('atom')),
+    Key([mod], "c", lazy.spawn('conky-toggle')),
+    Key([mod], "f", lazy.window.toggle_fullscreen()),
+    Key([mod], "m", lazy.spawn('pragha')),
+    Key([mod], "q", lazy.window.kill()),
+    Key([mod], "r", lazy.spawn('rofi-theme-selector')),
+    Key([mod], "t", lazy.spawn('urxvt')),
+    Key([mod], "v", lazy.spawn('pavucontrol')),
+    Key([mod], "w", lazy.spawn('vivaldi-stable')),
+    Key([mod], "x", lazy.spawn('oblogout')),
+    Key([mod], "Escape", lazy.spawn('xkill')),
+    Key([mod], "Return", lazy.spawn('termite')),
+    Key([mod], "KP_Enter", lazy.spawn('termite')),
+    Key([mod], "F1", lazy.spawn('vivaldi-stable')),
+    Key([mod], "F2", lazy.spawn('atom')),
+    Key([mod], "F3", lazy.spawn('inkscape')),
+    Key([mod], "F4", lazy.spawn('gimp')),
+    Key([mod], "F5", lazy.spawn('meld')),
+    Key([mod], "F6", lazy.spawn('vlc --video-on-top')),
+    Key([mod], "F7", lazy.spawn('virtualbox')),
+    Key([mod], "F8", lazy.spawn('thunar')),
+    Key([mod], "F9", lazy.spawn('evolution')),
+    Key([mod], "F10", lazy.spawn("spotify")),
+    Key([mod], "F11", lazy.spawn('rofi -show run -fullscreen')),
+    Key([mod], "F12", lazy.spawn('rofi -show run')),
 
 # SUPER + SHIFT KEYS
 
-   #Key([mod, "shift"], "Return", lazy.spawn('thunar')),
-   #Key([mod, "shift"], "d", lazy.spawn("dmenu_run -i -nb '#191919' -nf '#fea63c' -sb '#fea63c' -sf '#191919' -fn 'NotoMonoRegular:bold:pixelsize=14'")),
+    Key([mod, "shift"], "Return", lazy.spawn('thunar')),
+    Key([mod, "shift"], "d", lazy.spawn("dmenu_run -i -nb '#191919' -nf '#fea63c' -sb '#fea63c' -sf '#191919' -fn 'NotoMonoRegular:bold:pixelsize=14'")),
     Key([mod, "shift"], "q", lazy.window.kill()),
     Key([mod, "shift"], "r", lazy.restart()),
     Key([mod, "control"], "r", lazy.restart()),
@@ -100,30 +99,30 @@ keys = [
 
 # CONTROL + ALT KEYS
 
-    #Key(["mod1", "control"], "Next", lazy.spawn('conky-rotate -n')),
-    #Key(["mod1", "control"], "Prior", lazy.spawn('conky-rotate -p')),
-    #Key(["mod1", "control"], "a", lazy.spawn('xfce4-appfinder')),
-    #Key(["mod1", "control"], "b", lazy.spawn('thunar')),
-    #Key(["mod1", "control"], "c", lazy.spawn('catfish')),
-    #Key(["mod1", "control"], "e", lazy.spawn('arcolinux-tweak-tool')),
-    #Key(["mod1", "control"], "f", lazy.spawn('firefox')),
-    #Key(["mod1", "control"], "g", lazy.spawn('chromium -no-default-browser-check')),
-    #Key(["mod1", "control"], "i", lazy.spawn('nitrogen')),
-    #Key(["mod1", "control"], "k", lazy.spawn('arcolinux-logout')),
-    #Key(["mod1", "control"], "l", lazy.spawn('arcolinux-logout')),
-    #Key(["mod1", "control"], "m", lazy.spawn('xfce4-settings-manager')),
-    #Key(["mod1", "control"], "o", lazy.spawn(home + '/.config/qtile/scripts/picom-toggle.sh')),
+    Key(["mod1", "control"], "Next", lazy.spawn('conky-rotate -n')),
+    Key(["mod1", "control"], "Prior", lazy.spawn('conky-rotate -p')),
+    Key(["mod1", "control"], "a", lazy.spawn('xfce4-appfinder')),
+    Key(["mod1", "control"], "b", lazy.spawn('thunar')),
+    Key(["mod1", "control"], "c", lazy.spawn('catfish')),
+    Key(["mod1", "control"], "e", lazy.spawn('arcolinux-tweak-tool')),
+    Key(["mod1", "control"], "f", lazy.spawn('firefox')),
+    Key(["mod1", "control"], "g", lazy.spawn('chromium -no-default-browser-check')),
+    Key(["mod1", "control"], "i", lazy.spawn('nitrogen')),
+    Key(["mod1", "control"], "k", lazy.spawn('slimlock')),
+    Key(["mod1", "control"], "m", lazy.spawn('xfce4-settings-manager')),
+    Key(["mod1", "control"], "o", lazy.spawn(home + '/.config/qtile/scripts/picom-toggle.sh')),
     Key(["mod1", "control"], "p", lazy.spawn('pamac-manager')),
-    #Key(["mod1", "control"], "r", lazy.spawn('rofi-theme-selector')),
-    #Key(["mod1", "control"], "s", lazy.spawn('spotify')),
-    #Key(["mod1", "control"], "t", lazy.spawn('termite')),
-    #Key(["mod1", "control"], "u", lazy.spawn('pavucontrol')),
-    #Key(["mod1", "control"], "v", lazy.spawn('vivaldi-stable')),
-    #Key(["mod1", "control"], "w", lazy.spawn('arcolinux-welcome-app')),
-    #Key(["mod1", "control"], "Return", lazy.spawn('termite')),
+    Key(["mod1", "control"], "r", lazy.spawn('rofi-theme-selector')),
+    Key(["mod1", "control"], "s", lazy.spawn('spotify')),
+    Key(["mod1", "control"], "t", lazy.spawn('termite')),
+    Key(["mod1", "control"], "u", lazy.spawn('pavucontrol')),
+    Key(["mod1", "control"], "v", lazy.spawn('vivaldi-stable')),
+    Key(["mod1", "control"], "w", lazy.spawn('arcolinux-welcome-app')),
+    Key(["mod1", "control"], "Return", lazy.spawn('termite')),
 
 # ALT + ... KEYS
 
+    Key(["mod1"], "k", lazy.spawn('slimlock')),
     Key(["mod1"], "f", lazy.spawn('variety -f')),
     Key(["mod1"], "h", lazy.spawn('urxvt -e htop')),
     Key(["mod1"], "n", lazy.spawn('variety -n')),
@@ -260,230 +259,283 @@ keys = [
 # TOGGLE FLOATING LAYOUT
     Key([mod, "shift"], "space", lazy.window.toggle_floating()),]
 
+groups = []
 
-##### GROUPS #####
-group_names = [
-        ("", {'layout': 'monadtall'}),
-        ("", {'layout': 'monadtall'}),
-        ("", {'layout': 'monadtall'}),
-        ("ﱲ", {'layout': 'monadtall'}),
-        ("", {'layout': 'monadtall'}),
-        ("", {'layout': 'monadtall'}),
-        ("", {'layout': 'monadtall'})
+# FOR QWERTY KEYBOARDS
+group_names = ["1", "2", "3", "4", "5", "6", "7", "8", "9", "0",]
 
-        ]
+# FOR AZERTY KEYBOARDS
+#group_names = ["ampersand", "eacute", "quotedbl", "apostrophe", "parenleft", "section", "egrave", "exclam", "ccedilla", "agrave",]
 
-groups = [Group(name, **kwargs) for name, kwargs in group_names]
+#group_labels = ["1 ", "2 ", "3 ", "4 ", "5 ", "6 ", "7 ", "8 ", "9 ", "0",]
+group_labels = ["", "", "", "", "", "", "", "", "", "",]
+#group_labels = ["Web", "Edit/chat", "Image", "Gimp", "Meld", "Video", "Vb", "Files", "Mail", "Music",]
 
-for i, (name, kwargs) in enumerate(group_names, 1):
-    keys.append(Key([mod], str(i), lazy.group[name].toscreen()))        # Switch to another group
-    keys.append(Key([mod, "shift"], str(i), lazy.window.togroup(name))) # Send current window to another group
+group_layouts = ["monadtall", "monadtall", "monadtall", "monadtall", "monadtall", "monadtall", "monadtall", "monadtall", "monadtall", "monadtall",]
+#group_layouts = ["monadtall", "matrix", "monadtall", "bsp", "monadtall", "matrix", "monadtall", "bsp", "monadtall", "monadtall",]
+
+for i in range(len(group_names)):
+    groups.append(
+        Group(
+            name=group_names[i],
+            layout=group_layouts[i].lower(),
+            label=group_labels[i],
+        ))
+
+for i in groups:
+    keys.extend([
+
+#CHANGE WORKSPACES
+        Key([mod], i.name, lazy.group[i.name].toscreen()),
+        Key([mod], "Tab", lazy.screen.next_group()),
+        Key(["mod1"], "Tab", lazy.screen.next_group()),
+        Key(["mod1", "shift"], "Tab", lazy.screen.prev_group()),
+
+# MOVE WINDOW TO SELECTED WORKSPACE 1-10 AND STAY ON WORKSPACE
+        #Key([mod, "shift"], i.name, lazy.window.togroup(i.name)),
+# MOVE WINDOW TO SELECTED WORKSPACE 1-10 AND FOLLOW MOVED WINDOW TO WORKSPACE
+        Key([mod, "shift"], i.name, lazy.window.togroup(i.name) , lazy.group[i.name].toscreen()),
+    ])
 
 
-##### DEFAULT THEME SETTINGS FOR LAYOUTS #####
-layout_theme = {"border_width": 2,
-                "margin": 6,
-                "border_focus": "e1acff",
-                "border_normal": "1D2330"
-                }
+def init_layout_theme():
+    return {"margin":5,
+            "border_width":2,
+            "border_focus": "#5e81ac",
+            "border_normal": "#4c566a"
+            }
 
-##### THE LAYOUTS #####
+layout_theme = init_layout_theme()
+
+
 layouts = [
-    #layout.MonadWide(**layout_theme),
-    #layout.Bsp(**layout_theme),
-    #layout.Stack(stacks=2, **layout_theme),
-    #layout.Columns(**layout_theme),
-    #layout.RatioTile(**layout_theme),
-    #layout.VerticalTile(**layout_theme),
-    #layout.Matrix(**layout_theme),
-    #layout.Zoomy(**layout_theme),
-    layout.MonadTall(**layout_theme),
-    layout.Max(**layout_theme),
-    layout.Tile(shift_windows=True, **layout_theme),
-    layout.Stack(num_stacks=2),
-    layout.TreeTab(
-         font = "Ubuntu",
-         fontsize = 10,
-         sections = ["FIRST", "SECOND"],
-         section_fontsize = 11,
-         bg_color = "141414",
-         active_bg = "90C435",
-         active_fg = "000000",
-         inactive_bg = "384323",
-         inactive_fg = "a0a0a0",
-         padding_y = 5,
-         section_top = 10,
-         panel_width = 320
-         ),
-     layout.Floating(**layout_theme)
+    layout.MonadTall(margin=8, border_width=2, border_focus="#5e81ac", border_normal="#4c566a"),
+    layout.MonadWide(margin=8, border_width=2, border_focus="#5e81ac", border_normal="#4c566a"),
+    layout.Matrix(**layout_theme),
+    layout.Bsp(**layout_theme),
+    layout.Floating(**layout_theme),
+    layout.RatioTile(**layout_theme),
+    layout.Max(**layout_theme)
 ]
 
+# COLORS FOR THE BAR
 
-##### COLORS #####
-colors = [["#282a36", "#282a36"], # panel background
-          ["#434758", "#434758"], # background for current screen tab
-          ["#ffffff", "#ffffff"], # font color for group names
-          ["#ff5555", "#ff5555"], # border line color for current tab
-          ["#8d62a9", "#8d62a9"], # border line color for other tab and odd widgets
-          ["#668bd7", "#668bd7"], # color for the even widgets
-          ["#e1acff", "#e1acff"]] # window name
+def init_colors():
+    return [["#2F343F", "#2F343F"], # color 0
+            ["#2F343F", "#2F343F"], # color 1
+            ["#c0c5ce", "#c0c5ce"], # color 2
+            ["#fba922", "#fba922"], # color 3
+            ["#3384d0", "#3384d0"], # color 4
+            ["#f3f4f5", "#f3f4f5"], # color 5
+            ["#cd1f3f", "#cd1f3f"], # color 6
+            ["#62FF00", "#62FF00"], # color 7
+            ["#6790eb", "#6790eb"], # color 8
+            ["#a9a9a9", "#a9a9a9"]] # color 9
+
+
+colors = init_colors()
 
 
 
 
-##### PROMPT #####
-prompt = "{0}@{1}: ".format(os.environ["USER"], socket.gethostname())
+# WIDGETS FOR THE BAR
 
-##### DEFAULT WIDGET SETTINGS #####
-widget_defaults = dict(
-    font="Hack Nerd Font Bold",
-    fontsize = 12,
-    padding = 2,
-    background=colors[2]
-)
-extension_defaults = widget_defaults.copy()
+def init_widgets_defaults():
+    return dict(font="Noto Sans",
+                fontsize = 12,
+                padding = 2,
+                background=colors[1])
 
-##### WIDGETS #####
+widget_defaults = init_widgets_defaults()
 
 def init_widgets_list():
+    prompt = "{0}@{1}: ".format(os.environ["USER"], socket.gethostname())
     widgets_list = [
-               widget.Sep(
-                        linewidth = 0,
-                        padding = 6,
-                        foreground = colors[2],
-                        background = colors[0]
-                        ),
-               widget.GroupBox(font="Ubuntu Bold",
-                        fontsize = 33,
-                        margin_y = 3,
+               widget.GroupBox(font="FontAwesome",
+                        fontsize = 16,
+                        margin_y = -1,
                         margin_x = 0,
-                        padding_y = 5,
+                        padding_y = 6,
                         padding_x = 5,
-                        borderwidth = 3,
-                        active = colors[2],
-                        inactive = colors[2],
+                        borderwidth = 0,
+                        disable_drag = True,
+                        active = colors[9],
+                        inactive = colors[5],
                         rounded = False,
-                        highlight_color = colors[1],
-                        highlight_method = "line",
-                        this_current_screen_border = colors[3],
-                        this_screen_border = colors [4],
-                        other_current_screen_border = colors[0],
-                        other_screen_border = colors[0],
+                        highlight_method = "text",
+                        this_current_screen_border = colors[8],
                         foreground = colors[2],
-                        background = colors[0]
-                        ),
-               widget.Prompt(
-                        prompt=prompt,
-                        font="Hack Nerd Font Bold",
-                        padding=10,
-                        foreground = colors[3],
                         background = colors[1]
                         ),
                widget.Sep(
-                        linewidth = 0,
-                        padding = 40,
+                        linewidth = 1,
+                        padding = 10,
                         foreground = colors[2],
-                        background = colors[0]
-                        ),
-               widget.WindowName(
-                        foreground = colors[6],
-                        background = colors[0],
-                        padding = 0
-                        ),
-               widget.TextBox(
-                        text='◢',
-                        background = colors[0],
-                        foreground = colors[5],
-                        padding=0,
-                        fontsize=70
-                        ),
-               widget.TextBox(
-                        text=" 🖬",
-                        foreground=colors[2],
-                        background=colors[5],
-                        padding = 0,
-                        fontsize=14
-                        ),
-               widget.Memory(
-                        foreground = colors[2],
-                        background = colors[5],
-                        padding = 5
-                        ),
-               widget.TextBox(
-                        text='◢',
-                        background = colors[5],
-                        foreground = colors[4],
-                        padding=0,
-                        fontsize=70
-                        ),
-               widget.Net(
-                        interface = "wlp60s0",
-                        format = '{down} ↓↑ {up}',
-                        foreground = colors[2],
-                        background = colors[4],
-                        padding = 5
-                        ),
-               widget.TextBox(
-                        text='◢',
-                        background = colors[4],
-                        foreground = colors[5],
-                        padding=0,
-                        fontsize=70
-                        ),
-               widget.TextBox(
-                       text=" Vol:",
-                        foreground=colors[2],
-                        background=colors[5],
-                        padding = 0
-                        ),
-               widget.Volume(
-                        foreground = colors[2],
-                        background = colors[5],
-                        padding = 5
-                        ),
-               widget.TextBox(
-                        text='◢',
-                        background = colors[5],
-                        foreground = colors[4],
-                        padding=0,
-                        fontsize=70
-                        ),
-               widget.CurrentLayoutIcon(
-                        custom_icon_paths=[os.path.expanduser("~/.config/qtile/icons")],
-                        foreground = colors[0],
-                        background = colors[4],
-                        padding = 0,
-                        scale=0.7
+                        background = colors[1]
                         ),
                widget.CurrentLayout(
-                        foreground = colors[2],
-                        background = colors[4],
-                        padding = 5
-                        ),
-               widget.TextBox(
-                        text='◢',
-                        background = colors[4],
+                        font = "Noto Sans Bold",
                         foreground = colors[5],
-                        padding=0,
-                        fontsize=70
-                        ),
-               widget.Clock(
-                        foreground = colors[2],
-                        background = colors[5],
-                        format="%A, %B %d  [ %H:%M ]"
+                        background = colors[1]
                         ),
                widget.Sep(
-                        linewidth = 0,
+                        linewidth = 1,
                         padding = 10,
-                        foreground = colors[0],
-                        background = colors[5]
+                        foreground = colors[2],
+                        background = colors[1]
+                        ),
+               widget.WindowName(font="Noto Sans",
+                        fontsize = 12,
+                        foreground = colors[5],
+                        background = colors[1],
+                        ),
+               # widget.Net(
+               #          font="Noto Sans",
+               #          fontsize=12,
+               #          interface="enp0s31f6",
+               #          foreground=colors[2],
+               #          background=colors[1],
+               #          padding = 0,
+               #          ),
+               # widget.Sep(
+               #          linewidth = 1,
+               #          padding = 10,
+               #          foreground = colors[2],
+               #          background = colors[1]
+               #          ),
+               # widget.NetGraph(
+               #          font="Noto Sans",
+               #          fontsize=12,
+               #          bandwidth="down",
+               #          interface="auto",
+               #          fill_color = colors[8],
+               #          foreground=colors[2],
+               #          background=colors[1],
+               #          graph_color = colors[8],
+               #          border_color = colors[2],
+               #          padding = 0,
+               #          border_width = 1,
+               #          line_width = 1,
+               #          ),
+               # widget.Sep(
+               #          linewidth = 1,
+               #          padding = 10,
+               #          foreground = colors[2],
+               #          background = colors[1]
+               #          ),
+               # # do not activate in Virtualbox - will break qtile
+               # widget.ThermalSensor(
+               #          foreground = colors[5],
+               #          foreground_alert = colors[6],
+               #          background = colors[1],
+               #          metric = True,
+               #          padding = 3,
+               #          threshold = 80
+               #          ),
+               # # battery option 1  ArcoLinux Horizontal icons do not forget to import arcobattery at the top
+               # widget.Sep(
+               #          linewidth = 1,
+               #          padding = 10,
+               #          foreground = colors[2],
+               #          background = colors[1]
+               #          ),
+               # arcobattery.BatteryIcon(
+               #          padding=0,
+               #          scale=0.7,
+               #          y_poss=2,
+               #          theme_path=home + "/.config/qtile/icons/battery_icons_horiz",
+               #          update_interval = 5,
+               #          background = colors[1]
+               #          ),
+               # # battery option 2  from Qtile
+               # widget.Sep(
+               #          linewidth = 1,
+               #          padding = 10,
+               #          foreground = colors[2],
+               #          background = colors[1]
+               #          ),
+               # widget.Battery(
+               #          font="Noto Sans",
+               #          update_interval = 10,
+               #          fontsize = 12,
+               #          foreground = colors[5],
+               #          background = colors[1],
+	           #          ),
+               widget.TextBox(
+                        font="FontAwesome",
+                        text="  ",
+                        foreground=colors[6],
+                        background=colors[1],
+                        padding = 0,
+                        fontsize=16
+                        ),
+               widget.CPUGraph(
+                        border_color = colors[2],
+                        fill_color = colors[8],
+                        graph_color = colors[8],
+                        background=colors[1],
+                        border_width = 1,
+                        line_width = 1,
+                        core = "all",
+                        type = "box"
+                        ),
+               widget.Sep(
+                        linewidth = 1,
+                        padding = 10,
+                        foreground = colors[2],
+                        background = colors[1]
+                        ),
+               widget.TextBox(
+                        font="FontAwesome",
+                        text="  ",
+                        foreground=colors[4],
+                        background=colors[1],
+                        padding = 0,
+                        fontsize=16
+                        ),
+               widget.Memory(
+                        font="Noto Sans",
+                        format = '{MemUsed}M/{MemTotal}M',
+                        update_interval = 1,
+                        fontsize = 12,
+                        foreground = colors[5],
+                        background = colors[1],
+                       ),
+               widget.Sep(
+                        linewidth = 1,
+                        padding = 10,
+                        foreground = colors[2],
+                        background = colors[1]
+                        ),
+               widget.TextBox(
+                        font="FontAwesome",
+                        text="  ",
+                        foreground=colors[3],
+                        background=colors[1],
+                        padding = 0,
+                        fontsize=16
+                        ),
+               widget.Clock(
+                        foreground = colors[5],
+                        background = colors[1],
+                        fontsize = 12,
+                        format="%Y-%m-%d %H:%M"
+                        ),
+               widget.Sep(
+                        linewidth = 1,
+                        padding = 10,
+                        foreground = colors[2],
+                        background = colors[1]
                         ),
                widget.Systray(
-                        background=colors[0],
-                        padding = 5
+                        background=colors[1],
+                        icon_size=20,
+                        padding = 4
                         ),
               ]
     return widgets_list
+
+widgets_list = init_widgets_list()
 
 
 def init_widgets_screen1():
@@ -521,8 +573,6 @@ dgroups_app_rules = []
 # @hook.subscribe.client_new
 # def assign_app_group(client):
 #     d = {}
-#     #########################################################
-#     ################ assgin apps to groups ##################
 #     #########################################################
 #     ################ assgin apps to groups ##################
 #     #########################################################
@@ -598,7 +648,7 @@ floating_layout = layout.Floating(float_rules=[
     {'wmclass': 'Arandr'},
     {'wmclass': 'feh'},
     {'wmclass': 'Galculator'},
-    {'wmclass': 'arcolinux-logout'},
+    {'wmclass': 'Oblogout'},
     {'wmclass': 'xfce4-terminal'},
     {'wname': 'branchdialog'},
     {'wname': 'Open File'},

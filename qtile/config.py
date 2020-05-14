@@ -393,18 +393,32 @@ def init_widgets_list():
                widget.TextBox(
                         text='◢',
                         background = colors[0],
-                        foreground = colors[5],
+                        foreground = colors[4],
                         padding=0,
                         fontsize=70
                         ),
                widget.TextBox(
                         text=" 🖬",
                         foreground=colors[2],
-                        background=colors[5],
+                        background=colors[4],
                         padding = 0,
                         fontsize=14
                         ),
                widget.Memory(
+                        foreground = colors[2],
+                        background = colors[4],
+                        padding = 5
+                        ),
+               widget.TextBox(
+                        text='◢',
+                        background = colors[4],
+                        foreground = colors[5],
+                        padding=0,
+                        fontsize=70
+                        ),
+               widget.Net(
+                        interface = "wlp60s0",
+                        format = '{down} ↓↑ {up}',
                         foreground = colors[2],
                         background = colors[5],
                         padding = 5
@@ -416,9 +430,13 @@ def init_widgets_list():
                         padding=0,
                         fontsize=70
                         ),
-               widget.Net(
-                        interface = "wlp60s0",
-                        format = '{down} ↓↑ {up}',
+               widget.TextBox(
+                       text=" Vol:",
+                        foreground=colors[2],
+                        background=colors[4],
+                        padding = 0
+                        ),
+               widget.Volume(
                         foreground = colors[2],
                         background = colors[4],
                         padding = 5
@@ -430,16 +448,15 @@ def init_widgets_list():
                         padding=0,
                         fontsize=70
                         ),
-               widget.TextBox(
-                       text=" Vol:",
+               widget.Battery(
+                        charge_char='',
+                        full_char='',
+                        empty_char='',
+                        discharge_char='',
+                        unknown_char='',
+                        format= '{char} {percent: 1.0%}',
                         foreground=colors[2],
-                        background=colors[5],
-                        padding = 0
-                        ),
-               widget.Volume(
-                        foreground = colors[2],
-                        background = colors[5],
-                        padding = 5
+                        background=colors[5]
                         ),
                widget.TextBox(
                         text='◢',

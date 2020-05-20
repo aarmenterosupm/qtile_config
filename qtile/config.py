@@ -62,7 +62,7 @@ keys = [
    #Key([mod], "c", lazy.spawn('conky-toggle')),
    Key([mod], "f", lazy.spawn('thunar')), #FILE MANAGER
    #Key([mod], "m", lazy.spawn('pragha')),
-   #Key([mod], "q", lazy.window.kill()),
+   Key([mod], "q", lazy.spawn('qutebrowser')),
    Key([mod], "r", lazy.spawn('rofi-theme-selector')), #SELCTOR DE TEMA DE MENU
    #Key([mod], "t", lazy.spawn('urxvt')),
    #Key([mod], "v", lazy.spawn('pavucontrol')),
@@ -145,8 +145,8 @@ keys = [
 
 # SCREENSHOTS
 
-    Key([], "Print", lazy.spawn("scrot 'ArcoLinux-%Y-%m-%d-%s_screenshot_$wx$h.jpg' -e 'mv $f $$(xdg-user-dir PICTURES)'")),
-    Key([mod2], "Print", lazy.spawn('xfce4-screenshooter')),
+    #Key([], "Print", lazy.spawn("scrot 'ArcoLinux-%Y-%m-%d-%s_screenshot_$wx$h.jpg' -e 'mv $f $$(xdg-user-dir PICTURES)'")),
+    Key([], "Print", lazy.spawn('xfce4-screenshooter')),
     Key([mod2, "shift"], "Print", lazy.spawn('gnome-screenshot -i')),
 
 # MULTIMEDIA KEYS

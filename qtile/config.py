@@ -120,28 +120,28 @@ keys = [
 
 # ALT + ... KEYS
 
-    Key(["mod1"], "f", lazy.spawn('variety -f')),
-    Key(["mod1"], "h", lazy.spawn('urxvt -e htop')),
-    Key(["mod1"], "n", lazy.spawn('variety -n')),
-    Key(["mod1"], "p", lazy.spawn('variety -p')),
-    Key(["mod1"], "t", lazy.spawn('variety -t')),
-    Key(["mod1"], "Up", lazy.spawn('variety --pause')),
-    Key(["mod1"], "Down", lazy.spawn('variety --resume')),
-    Key(["mod1"], "Left", lazy.spawn('variety -p')),
-    Key(["mod1"], "Right", lazy.spawn('variety -n')),
-    Key(["mod1"], "F2", lazy.spawn('gmrun')),
-    Key(["mod1"], "F3", lazy.spawn('xfce4-appfinder')),
+    #Key(["mod1"], "f", lazy.spawn('variety -f')),
+    Key(["mod1"], "h", lazy.spawn('termite -e bashtop')),
+    #Key(["mod1"], "n", lazy.spawn('variety -n')),
+    #Key(["mod1"], "p", lazy.spawn('variety -p')),
+    #Key(["mod1"], "t", lazy.spawn('variety -t')),
+    #Key(["mod1"], "Up", lazy.spawn('variety --pause')),
+    #Key(["mod1"], "Down", lazy.spawn('variety --resume')),
+    #Key(["mod1"], "Left", lazy.spawn('variety -p')),
+    #Key(["mod1"], "Right", lazy.spawn('variety -n')),
+    #Key(["mod1"], "F2", lazy.spawn('gmrun')),
+    Key(["mod1"], "m", lazy.spawn('xfce4-appfinder')),
 
 # VARIETY KEYS WITH PYWAL
 
-    Key(["mod1", "shift"], "f", lazy.spawn(home + '/.config/qtile/scripts/set-pywal.sh -f')),
-    Key(["mod1", "shift"], "p", lazy.spawn(home + '/.config/qtile/scripts/set-pywal.sh -p')),
-    Key(["mod1", "shift"], "n", lazy.spawn(home + '/.config/qtile/scripts/set-pywal.sh -n')),
-    Key(["mod1", "shift"], "u", lazy.spawn(home + '/.config/qtile/scripts/set-pywal.sh -u')),
+    #Key(["mod1", "shift"], "f", lazy.spawn(home + '/.config/qtile/scripts/set-pywal.sh -f')),
+    #Key(["mod1", "shift"], "p", lazy.spawn(home + '/.config/qtile/scripts/set-pywal.sh -p')),
+    #Key(["mod1", "shift"], "n", lazy.spawn(home + '/.config/qtile/scripts/set-pywal.sh -n')),
+    #Key(["mod1", "shift"], "u", lazy.spawn(home + '/.config/qtile/scripts/set-pywal.sh -u')),
 
 # CONTROL + SHIFT KEYS
 
-    Key([mod2, "shift"], "Escape", lazy.spawn('xfce4-taskmanager')),
+    #Key([mod2, "shift"], "Escape", lazy.spawn('xfce4-taskmanager')),
 
 # SCREENSHOTS
 
@@ -528,43 +528,33 @@ mouse = [
 dgroups_key_binder = None
 dgroups_app_rules = []
 
-# ASSIGN APPLICATIONS TO A SPECIFIC GROUPNAME
-# BEGIN
+#ASSIGN APPLICATIONS TO A SPECIFIC GROUPNAME
+#BEGIN
 
-# @hook.subscribe.client_new
-# def assign_app_group(client):
-#     d = {}
-#     #########################################################
-#     ################ assgin apps to groups ##################
-#     #########################################################
-#     ################ assgin apps to groups ##################
-#     #########################################################
-#     d["1"] = ["Navigator", "Firefox", "Vivaldi-stable", "Vivaldi-snapshot", "Chromium", "Google-chrome", "Brave", "Brave-browser",
-#               "navigator", "firefox", "vivaldi-stable", "vivaldi-snapshot", "chromium", "google-chrome", "brave", "brave-browser", ]
-#     d["2"] = [ "Atom", "Subl3", "Geany", "Brackets", "Code-oss", "Code", "TelegramDesktop", "Discord",
-#                "atom", "subl3", "geany", "brackets", "code-oss", "code", "telegramDesktop", "discord", ]
-#     d["3"] = ["Inkscape", "Nomacs", "Ristretto", "Nitrogen", "Feh",
-#               "inkscape", "nomacs", "ristretto", "nitrogen", "feh", ]
-#     d["4"] = ["Gimp", "gimp" ]
-#     d["5"] = ["Meld", "meld", "org.gnome.meld" "org.gnome.Meld" ]
-#     d["6"] = ["Vlc","vlc", "Mpv", "mpv" ]
-#     d["7"] = ["VirtualBox Manager", "VirtualBox Machine", "Vmplayer",
-#               "virtualbox manager", "virtualbox machine", "vmplayer", ]
-#     d["8"] = ["Thunar", "Nemo", "Caja", "Nautilus", "org.gnome.Nautilus", "Pcmanfm", "Pcmanfm-qt",
-#               "thunar", "nemo", "caja", "nautilus", "org.gnome.nautilus", "pcmanfm", "pcmanfm-qt", ]
-#     d["9"] = ["Evolution", "Geary", "Mail", "Thunderbird",
-#               "evolution", "geary", "mail", "thunderbird" ]
-#     d["0"] = ["Spotify", "Pragha", "Clementine", "Deadbeef", "Audacious",
-#               "spotify", "pragha", "clementine", "deadbeef", "audacious" ]
-#     ##########################################################
-#     wm_class = client.window.get_wm_class()[0]
+#@hook.subscribe.client_new
+#def assign_app_group(client):
+#   d = {}
 #
-#     for i in range(len(d)):
-#         if wm_class in list(d.values())[i]:
-#             group = list(d.keys())[i]
-#             client.togroup(group)
-#             client.group.cmd_toscreen()
-
+#   #########################################################
+#   ################ assgin apps to groups ##################
+#   #########################################################
+#
+#   d["1"] = []
+#   d["2"] = ["qutebrowser", "firefox"]
+#   d["3"] = []
+#   d["4"] = []
+#   d["5"] = []
+#   d["6"] = []
+#   d["7"] = []
+#   ##########################################################
+#   wm_class = client.window.get_wm_class()[0]
+#
+#   for i in range(len(d)):
+#       if wm_class in list(d.values())[i]:
+#           group = list(d.keys())[i]
+#           client.togroup(group)
+#           client.group.cmd_toscreen()
+#
 # END
 # ASSIGN APPLICATIONS TO A SPECIFIC GROUPNAME
 

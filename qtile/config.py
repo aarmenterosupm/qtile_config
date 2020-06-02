@@ -262,7 +262,7 @@ group_names = [
         ("", {'layout': 'monadtall'}),
         ("", {'layout': 'monadtall'}),
         ("", {'layout': 'monadtall'}),
-        ("", {'layout': 'monadtall'}),
+        ("", {'layout': 'max'}),
         ("ﱲ", {'layout': 'monadtall'}),
         ("", {'layout': 'monadtall'}),
         ("", {'layout': 'monadtall'}),
